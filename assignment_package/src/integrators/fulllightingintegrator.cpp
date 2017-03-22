@@ -18,6 +18,8 @@ Color3f FullLightingIntegrator::Li(Ray &ray, const Scene &scene, std::shared_ptr
         Vector3f woW = - ray.direction;
         if (!isect.objectHit->GetMaterial()) return isect.Le(woW);
 
+        isect.ProduceBSDF();
+
         // direct
         int index = std::min((int)(sampler->Get1D() * num), num - 1);
         const std::shared_ptr<Light> &light = scene.lights[index];
@@ -40,9 +42,9 @@ Color3f FullLightingIntegrator::Li(Ray &ray, const Scene &scene, std::shared_ptr
 
         // global illumination
         xi = sampler->Get2D();
-        Color3f f = isect.bsdf->Sample_f(woW, &wiW, xi, &pdf);
+        Color3f f0 = isect.bsdf->Sample_f(woW, &wiW, xi, &pdf);
         if (pdf > 0.f) {
-            Color3f f = f1 * AbsDot(wiW, isect.normalGeometric)/pdf;
+            Color3f f = f0 * AbsDot(wiW, isect.normalGeometric)/pdf;
             energy *= f;
             color += energy * d_color;
         }
