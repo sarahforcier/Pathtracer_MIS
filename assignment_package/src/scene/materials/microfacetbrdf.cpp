@@ -19,6 +19,7 @@ Color3f MicrofacetBRDF::Sample_f(const Vector3f &wo, Vector3f *wi, const Point2f
 {
     //TODO
     if (wo.z == 0.f) return Color3f(0.f);
+    if (sampledType) *sampledType = type;
     Vector3f wh = distribution->Sample_wh(wo, xi);
     *wi = glm::reflect(-wo,wh);
     if (!SameHemisphere(wo, *wi)) return Color3f(0.f);

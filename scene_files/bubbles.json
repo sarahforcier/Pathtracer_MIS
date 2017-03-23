@@ -15,7 +15,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere1",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [-1.5, 6.8, -4.6],
             "rotate" : [0, 0, 0],
@@ -25,7 +25,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere2",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [0.9, 4, -5.8],
             "rotate" : [0, 0, 0],
@@ -35,7 +35,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere3",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [-1, 5.6, -7.5],
             "rotate" : [0, 0, 0],
@@ -45,7 +45,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere4",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [-2.9, 4.6, -6.2],
             "rotate" : [0, 0, 0],
@@ -55,7 +55,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere5",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [-0.3, 4.9, -8.6],
             "rotate" : [0, 0, 0],
@@ -65,7 +65,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere6",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [-0.95, 2.4, -7.8],
             "rotate" : [0, 0, 0],
@@ -75,7 +75,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere7",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [-3, 4, -8.2],
             "rotate" : [0, 0, 0],
@@ -85,7 +85,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere8",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [-4, 2.3, -6.8],
             "rotate" : [0, 0, 0],
@@ -95,7 +95,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere9",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [2, 1, -7.6],
             "rotate" : [0, 0, 0],
@@ -105,7 +105,7 @@
         {
           "shape" : "Sphere",
           "name" : "bigsphere1",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [2.7, 7.6, 0],
             "rotate" : [0, 0, 0],
@@ -115,7 +115,7 @@
         {
           "shape" : "Sphere",
           "name" : "bigsphere2",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [-5.3, 2.3, 2.8],
             "rotate" : [0, 0, 0],
@@ -125,7 +125,7 @@
         {
           "shape" : "Sphere",
           "name" : "bigsphere3",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [-2.5, -5.1, -6.8],
             "rotate" : [0, 0, 0],
@@ -135,7 +135,7 @@
         {
           "shape" : "Sphere",
           "name" : "bigsphere4",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [6.7, 1, -4.4],
             "rotate" : [0, 0, 0],
@@ -145,7 +145,7 @@
         {
           "shape" : "Sphere",
           "name" : "bigsphere5",
-          "material" : "matteRed",
+          "material" : "uber",
           "transform" : {
             "translate" : [-8.5, -0.1, -7.5],
             "rotate" : [0, 0, 0],
@@ -158,10 +158,10 @@
           "shape" : "SquarePlane",
           "name" : "Light Source Yellow",
           "type" : "DiffuseAreaLight",
-          "lightColor" : [17,12,4],
+          "lightColor" : [14,9,4],
           "intensity" : 1,
           "transform" : {
-            "translate" : [2,11,0],
+            "translate" : [0,15,-6],
             "rotate" : [90,0,0],
             "scale" : [3, 3, 1]
           },
@@ -175,8 +175,22 @@
           "lightColor" : [4,12,17],
           "intensity" : 1,
           "transform" : {
-            "translate" : [-2, 11,0],
+            "translate" : [-4, 15,-6],
             "rotate" : [90,0,0],
+            "scale" : [3, 3, 1]
+          },
+          "isDelta" : false,
+          "twoSided" : true
+        },
+        {
+          "shape" : "SquarePlane",
+          "name" : "Light Source Red",
+          "type" : "DiffuseAreaLight",
+          "lightColor" : [17,12, 12],
+          "intensity" : 1,
+          "transform" : {
+            "translate" : [-2,0,-20],
+            "rotate" : [0,0,0],
             "scale" : [3, 3, 1]
           },
           "isDelta" : false,
@@ -191,16 +205,16 @@
           "sigma": 0
         },
         {
-          "type" : "MatteMaterial",
-          "name" : "matteRed",
-          "Kd" : [0.63, 0.065, 0.05],
-          "sigma": 0
-        },
-        {
-          "type" : "MatteMaterial",
-          "name" : "matteGreen",
-          "Kd" : [0.14, 0.45, 0.091],
-          "sigma": 0
+          "type" : "UberMaterial",
+          "name" : "uber",
+          "Kd" : [0.63, 0.3, 0.6],
+          "Kd" : [0.63, 0.3, 0.6],
+          "Kd" : [0.63, 0.3, 0.6],
+          "Kd" : [0.63, 0.3, 0.6],
+          "roughnessX" : 0.05,
+          "roughnessY" : 0.04,
+          "eta" : 1.33,
+          "opacity" : 1
         }
       ]
     }

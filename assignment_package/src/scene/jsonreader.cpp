@@ -10,6 +10,9 @@
 #include <scene/materials/transmissivematerial.h>
 #include <scene/materials/glassmaterial.h>
 #include <scene/materials/plasticmaterial.h>
+#include <scene/materials/ubermaterial.h>
+#include <scene/materials/metalmaterial.h>
+#include <scene/materials/translucentmaterial.h>
 #include <scene/lights/diffusearealight.h>
 #include <iostream>
 
@@ -367,6 +370,108 @@ bool JSONReader::LoadMaterial(QJsonObject &material, const QStringRef &local_pat
             normalMap = std::make_shared<QImage>(img_filepath);
         }
         auto result = std::make_shared<PlasticMaterial>(Kd, Ks, roughness, roughnessMap, textureMapDiffuse, textureMapSpecular, normalMap);
+        mtl_map->insert(material["name"].toString(), result);
+    }
+    else if(QString::compare(type, QString("UberMaterial")) == 0)
+    {
+        std::shared_ptr<QImage> roughnessMap;
+        std::shared_ptr<QImage> textureMapSpec;
+        std::shared_ptr<QImage> textureMapRefl;
+        std::shared_ptr<QImage> textureMapTransmit;
+        std::shared_ptr<QImage> textureMap;
+        std::shared_ptr<QImage> normalMap;
+        Color3f Kd = ToVec3(material["Kd"].toArray());
+        Color3f Ks = ToVec3(material["Ks"].toArray());
+        Color3f Kt = ToVec3(material["Kt"].toArray());
+        Color3f Kr = ToVec3(material["Kr"].toArray());
+        float roughnessX = material["roughnessY"].toDouble();
+        float roughnessY = material["roughnessX"].toDouble();
+        float eta = material["eta "].toDouble();
+        float op = material["opacity"].toDouble();
+        if(material.contains(QString("roughnessMap"))) {
+            QString img_filepath = local_path.toString().append(material["roughnessMap"].toString());
+            roughnessMap = std::make_shared<QImage>(img_filepath);
+        }
+        if(material.contains(QString("textureMapDiffuse"))) {
+            QString img_filepath = local_path.toString().append(material["textureMapDiffuse"].toString());
+            textureMap = std::make_shared<QImage>(img_filepath);
+        }
+        if(material.contains(QString("textureMapSpecular"))) {
+            QString img_filepath = local_path.toString().append(material["textureMapSpecular"].toString());
+            textureMapSpec = std::make_shared<QImage>(img_filepath);
+        }
+        if(material.contains(QString("textureMapRefl"))) {
+            QString img_filepath = local_path.toString().append(material["textureMapRefl"].toString());
+            textureMapRefl = std::make_shared<QImage>(img_filepath);
+        }
+        if(material.contains(QString("textureMapTransmit"))) {
+            QString img_filepath = local_path.toString().append(material["textureMapTransmit"].toString());
+            textureMapTransmit = std::make_shared<QImage>(img_filepath);
+        }
+        if(material.contains(QString("normalMap"))) {
+            QString img_filepath = local_path.toString().append(material["normalMap"].toString());
+            normalMap = std::make_shared<QImage>(img_filepath);
+        }
+        auto result = std::make_shared<UberMaterial>(Kr, Kt, Kd, Ks, roughnessX, roughnessY, op, eta,
+                                                     roughnessMap, textureMapSpec, textureMapRefl, textureMapTransmit, textureMap, normalMap);
+        mtl_map->insert(material["name"].toString(), result);
+    }
+    else if(QString::compare(type, QString("MetalMaterial")) == 0)
+    {
+        std::shared_ptr<QImage> roughnessMap;
+        std::shared_ptr<QImage> textureMap;
+        std::shared_ptr<QImage> normalMap;
+        Color3f R = ToVec3(material["Kr"].toArray());
+        float roughnessX = material["roughnessX"].toDouble();
+        float roughnessY = material["roughnessX"].toDouble();
+        float eta = material["eta"].toDouble();
+        if(material.contains(QString("roughnessMap"))) {
+            QString img_filepath = local_path.toString().append(material["roughnessMap"].toString());
+            roughnessMap = std::make_shared<QImage>(img_filepath);
+        }
+        if(material.contains(QString("textureMapDiffuse"))) {
+            QString img_filepath = local_path.toString().append(material["textureMapDiffuse"].toString());
+            textureMap = std::make_shared<QImage>(img_filepath);
+        }
+        if(material.contains(QString("normalMap"))) {
+            QString img_filepath = local_path.toString().append(material["normalMap"].toString());
+            normalMap = std::make_shared<QImage>(img_filepath);
+        }
+        auto result = std::make_shared<MetalMaterial>(R, roughnessX, roughnessY, eta, roughnessMap, textureMap, normalMap);
+        mtl_map->insert(material["name"].toString(), result);
+    }
+    else if(QString::compare(type, QString("TranslucentMaterial")) == 0)
+    {
+        std::shared_ptr<QImage> textureMapRefl;
+        std::shared_ptr<QImage> textureMapTransmit;
+        std::shared_ptr<QImage> roughnessMap;
+        std::shared_ptr<QImage> textureMap;
+        std::shared_ptr<QImage> normalMap;
+        Color3f Kd = ToVec3(material["Kd"].toArray());
+        Color3f Ks = ToVec3(material["Ks"].toArray());
+        float roughness = material["roughness"].toDouble();
+        float eta = material["eta"].toDouble();
+        if(material.contains(QString("roughnessMap"))) {
+            QString img_filepath = local_path.toString().append(material["roughnessMap"].toString());
+            roughnessMap = std::make_shared<QImage>(img_filepath);
+        }
+        if(material.contains(QString("textureMap"))) {
+            QString img_filepath = local_path.toString().append(material["textureMapDiffuse"].toString());
+            textureMap = std::make_shared<QImage>(img_filepath);
+        }
+        if(material.contains(QString("textureMapRefl"))) {
+            QString img_filepath = local_path.toString().append(material["textureMapRefl"].toString());
+            textureMapRefl = std::make_shared<QImage>(img_filepath);
+        }
+        if(material.contains(QString("textureMapTransmit"))) {
+            QString img_filepath = local_path.toString().append(material["textureMapTransmit"].toString());
+            textureMapTransmit = std::make_shared<QImage>(img_filepath);
+        }
+        if(material.contains(QString("normalMap"))) {
+            QString img_filepath = local_path.toString().append(material["normalMap"].toString());
+            normalMap = std::make_shared<QImage>(img_filepath);
+        }
+        auto result = std::make_shared<TranslucentMaterial>(Kd, Ks, roughness, eta, textureMapRefl, textureMapTransmit, roughnessMap, textureMap, normalMap);
         mtl_map->insert(material["name"].toString(), result);
     }
     else

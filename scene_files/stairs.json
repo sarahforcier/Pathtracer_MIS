@@ -4,24 +4,24 @@
     "frameNumber" : 0,
     "scene" : {
       "camera" : {
-        "target" : [0, 2.5, 0],
+        "target" : [0, 2.7, 0],
         "eye" : [0, 20, -40],
         "worldUp" : [0, 1, 0],
         "fov" : 20,
-        "width" : 500,
-        "height": 400
+        "width" : 250,
+        "height": 200
       },
       "primitives" : [
         {
           "shape" : "Mesh",
           "name" : "stair",
-          "filename" : "stairs_shell.obj",
-          "material" : "chromeMirror"
+          "filename" : "stairs_shell_zoom.obj",
+          "material" : "matteWhite"
         },
         {
           "shape" : "SquarePlane",
           "name" : "Floor",
-          "material" : "chromeMirror",
+          "material" : "matteWhite",
           "transform" : {
             "translate" : [0, -2.5, -5.5],
             "rotate" : [90, 0, 45],
@@ -30,8 +30,18 @@
         },
         {
           "shape" : "SquarePlane",
+          "name" : "Ceiling",
+          "material" : "matteWhite",
+          "transform" : {
+            "translate" : [0, 13, -5.5],
+            "rotate" : [90, 0, 45],
+            "scale" : [15, 15, 1]
+          }
+        },
+        {
+          "shape" : "SquarePlane",
           "name" : "Left Wall",
-          "material" : "chromeMirror1",
+          "material" : "matteWhite",
           "transform" : {
             "translate" : [5.3, 5, -0.25],
             "rotate" : [0, 45, 0],
@@ -41,13 +51,33 @@
         {
           "shape" : "SquarePlane",
           "name" : "Right Wall",
-          "material" : "chromeMirror2",
+          "material" : "matteWhite",
           "transform" : {
             "translate" : [-5.3, 5, -0.25],
             "rotate" : [0, -45, 0],
             "scale" : [15, 15, 1]
           }
         },
+        {
+          "shape" : "SquarePlane",
+          "name" : "Back1",
+          "material" : "matteWhite",
+          "transform" : {
+            "translate" : [-5.3, 5, -11],
+            "rotate" : [0, 45, 0],
+            "scale" : [15, 15, 1]
+          }
+      	},
+      	{
+          "shape" : "SquarePlane",
+          "name" : "Back1",
+          "material" : "matteWhite",
+          "transform" : {
+            "translate" : [5.3, 5, -11],
+            "rotate" : [0, -45, 0],
+            "scale" : [15, 15, 1]
+          }
+      	},
         {
           "shape" : "Sphere",
           "name" : "sphere1",
@@ -132,13 +162,27 @@
       "lights" : [
         {
           "shape" : "SquarePlane",
-          "name" : "Light Source",
+          "name" : "Back Light1",
+          "type" : "DiffuseAreaLight",
+          "lightColor" : [4,12,17],
+          "intensity" : 0.5,
+          "transform" : {
+            "translate" : [-7.5, 5, -7],
+            "rotate" : [0, 45, 0],
+            "scale" : [3, 3, 1]
+          },
+          "isDelta" : false,
+          "twoSided" : true
+        },
+        {
+          "shape" : "SquarePlane",
+          "name" : "Back Light2",
           "type" : "DiffuseAreaLight",
           "lightColor" : [17,12,4],
-          "intensity" : 2,
+          "intensity" : 0.5,
           "transform" : {
-            "translate" : [0,11,0],
-            "rotate" : [90,0,0],
+            "translate" : [7.5, 5, -7],
+            "rotate" : [0, -45, 0],
             "scale" : [3, 3, 1]
           },
           "isDelta" : false,
@@ -150,6 +194,17 @@
           "type" : "MatteMaterial",
           "name" : "matteSalmon",
             "Kd" : [0.96, 0.26, 0.26],
+          "sigma": 20
+        },
+        {
+          "type" : "MatteMaterial",
+          "name" : "matteWhite",
+            "Kd" : [1, 1, 1]
+        },
+        {
+          "type" : "MatteMaterial",
+          "name" : "matteRed",
+            "Kd" : [0.96, 0.12, 0.14],
           "sigma": 20
         },
         {

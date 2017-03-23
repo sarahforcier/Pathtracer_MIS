@@ -7,7 +7,8 @@ Color3f FullLightingIntegrator::Li(Ray &ray, const Scene &scene, std::shared_ptr
     Color3f color = Color3f(0.f);
     // declarations
     float pdf; Vector3f wiW;
-    bool specular = false;
+    BxDFType type = BSDF_DIFFUSE;
+    BxDFType all = BSDF_ALL;
 
     // number of lights
     int num= scene.lights.length();
@@ -18,7 +19,7 @@ Color3f FullLightingIntegrator::Li(Ray &ray, const Scene &scene, std::shared_ptr
         if (!scene.Intersect(ray, &isect)) break;
         Vector3f woW = - ray.direction;
         if (!isect.objectHit->GetMaterial()) {
-            if (specular || depth == 5) color += energy * isect.Le(woW);
+            if ((BSDF_SPECULAR & type) != 0 || depth == 5) color += energy * isect.Le(woW);
             break;
         }
 
@@ -50,7 +51,7 @@ Color3f FullLightingIntegrator::Li(Ray &ray, const Scene &scene, std::shared_ptr
         color += energy * d_color;
 
         // global illumination
-        Color3f f0 = isect.bsdf->Sample_f(woW, &wiW, sampler->Get2D(), &pdf);
+        Color3f f0 = isect.bsdf->Sample_f(woW, &wiW, sampler->Get2D(), &pdf, all, &type);
         if (pdf > 0.f) {
             Color3f f = f0 * AbsDot(wiW, isect.normalGeometric)/pdf;
             energy *= f;
@@ -66,7 +67,6 @@ Color3f FullLightingIntegrator::Li(Ray &ray, const Scene &scene, std::shared_ptr
 
         // loop updates
         depth--;
-        //energy /= E;
         ray = isect.SpawnRay(wiW);
     }
     return color;
