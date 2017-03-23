@@ -4,58 +4,22 @@
     "frameNumber" : 0,
     "scene" : {
       "camera" : {
-        "target" : [0, 2.5, 0],
-        "eye" : [0, 20, -40],
+        "target" : [-2.5, 0.5, 0],
+        "eye" : [0, 20, -35],
         "worldUp" : [0, 1, 0],
         "fov" : 20,
-        "width" : 500,
+        "width" : 600,
         "height": 400
       },
       "primitives" : [
-        {
-          "shape" : "Mesh",
-          "name" : "stair",
-          "filename" : "stairs_shell.obj",
-          "material" : "matteWhite"
-        },
-        {
-          "shape" : "SquarePlane",
-          "name" : "Floor",
-          "material" : "matteWhite",
-          "transform" : {
-            "translate" : [0, -2.5, -5.5],
-            "rotate" : [90, 0, 45],
-            "scale" : [15, 15, 1]
-          }
-        },
-        {
-          "shape" : "SquarePlane",
-          "name" : "Left Wall",
-          "material" : "matteRed",
-          "transform" : {
-            "translate" : [5.3, 5, -0.25],
-            "rotate" : [0, 45, 0],
-            "scale" : [15, 15, 1]
-          }
-        },
-        {
-          "shape" : "SquarePlane",
-          "name" : "Right Wall",
-          "material" : "matteGreen",
-          "transform" : {
-            "translate" : [-5.3, 5, -0.25],
-            "rotate" : [0, -45, 0],
-            "scale" : [15, 15, 1]
-          }
-        },
         {
           "shape" : "Sphere",
           "name" : "sphere1",
           "material" : "matteRed",
           "transform" : {
-            "translate" : [0.7, 7, 3.6],
+            "translate" : [-1.5, 6.8, -4.6],
             "rotate" : [0, 0, 0],
-            "scale" : [0.5, 0.5, 0.5]
+            "scale" : [2, 2, 2]
           }
         },
         {
@@ -63,9 +27,9 @@
           "name" : "sphere2",
           "material" : "matteRed",
           "transform" : {
-            "translate" : [-0.7, 5, 2.25],
+            "translate" : [0.9, 4, -5.8],
             "rotate" : [0, 0, 0],
-            "scale" : [0.5, 0.5, 0.5]
+            "scale" : [3, 3, 3]
           }
         },
         {
@@ -73,9 +37,9 @@
           "name" : "sphere3",
           "material" : "matteRed",
           "transform" : {
-            "translate" : [-3.5, 3, 0.8],
+            "translate" : [-1, 5.6, -7.5],
             "rotate" : [0, 0, 0],
-            "scale" : [0.5, 0.5, 0.5]
+            "scale" : [1.4, 1.4, 1.4]
           }
         },
         {
@@ -83,9 +47,9 @@
           "name" : "sphere4",
           "material" : "matteRed",
           "transform" : {
-            "translate" : [2.8, 2, 0.1],
+            "translate" : [-2.9, 4.6, -6.2],
             "rotate" : [0, 0, 0],
-            "scale" : [0.5, 0.5, 0.5]
+            "scale" : [2.3, 2.3, 2.3]
           }
         },
         {
@@ -93,7 +57,7 @@
           "name" : "sphere5",
           "material" : "matteRed",
           "transform" : {
-            "translate" : [0.7, 1, -0.7],
+            "translate" : [-0.3, 4.9, -8.6],
             "rotate" : [0, 0, 0],
             "scale" : [0.5, 0.5, 0.5]
           }
@@ -103,9 +67,9 @@
           "name" : "sphere6",
           "material" : "matteRed",
           "transform" : {
-            "translate" : [-3.5, -1, -2],
+            "translate" : [-0.95, 2.4, -7.8],
             "rotate" : [0, 0, 0],
-            "scale" : [0.5, 0.5, 0.5]
+            "scale" : [2.5, 2.5, 2.5]
           }
         },
         {
@@ -113,9 +77,9 @@
           "name" : "sphere7",
           "material" : "matteRed",
           "transform" : {
-            "translate" : [5.7, -2, -2.7],
+            "translate" : [-3, 4, -8.2],
             "rotate" : [0, 0, 0],
-            "scale" : [0.5, 0.5, 0.5]
+            "scale" : [0.8, 0.8, 0.8]
           }
         },
         {
@@ -123,9 +87,69 @@
           "name" : "sphere8",
           "material" : "matteRed",
           "transform" : {
-            "translate" : [1.4, -2, -2.7],
+            "translate" : [-4, 2.3, -6.8],
             "rotate" : [0, 0, 0],
-            "scale" : [0.5, 0.5, 0.5]
+            "scale" : [2.1, 2.1, 2.1]
+          }
+        },
+        {
+          "shape" : "Sphere",
+          "name" : "sphere9",
+          "material" : "matteRed",
+          "transform" : {
+            "translate" : [2, 1, -7.6],
+            "rotate" : [0, 0, 0],
+            "scale" : [1.9, 1.9, 1.9]
+          }
+        },
+        {
+          "shape" : "Sphere",
+          "name" : "bigsphere1",
+          "material" : "matteRed",
+          "transform" : {
+            "translate" : [2.7, 7.6, 0],
+            "rotate" : [0, 0, 0],
+            "scale" : [6, 6, 6]
+          }
+        },
+        {
+          "shape" : "Sphere",
+          "name" : "bigsphere2",
+          "material" : "matteRed",
+          "transform" : {
+            "translate" : [-5.3, 2.3, 2.8],
+            "rotate" : [0, 0, 0],
+            "scale" : [10, 10, 10]
+          }
+        },
+        {
+          "shape" : "Sphere",
+          "name" : "bigsphere3",
+          "material" : "matteRed",
+          "transform" : {
+            "translate" : [-2.5, -5.1, -6.8],
+            "rotate" : [0, 0, 0],
+            "scale" : [7, 7, 7]
+          }
+        },
+        {
+          "shape" : "Sphere",
+          "name" : "bigsphere4",
+          "material" : "matteRed",
+          "transform" : {
+            "translate" : [6.7, 1, -4.4],
+            "rotate" : [0, 0, 0],
+            "scale" : [5.5, 5.5, 5.5]
+          }
+        },
+        {
+          "shape" : "Sphere",
+          "name" : "bigsphere5",
+          "material" : "matteRed",
+          "transform" : {
+            "translate" : [-8.5, -0.1, -7.5],
+            "rotate" : [0, 0, 0],
+            "scale" : [4, 4, 4]
           }
         }
       ],
