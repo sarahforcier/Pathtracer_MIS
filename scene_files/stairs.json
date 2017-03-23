@@ -16,12 +16,12 @@
           "shape" : "Mesh",
           "name" : "stair",
           "filename" : "stairs_shell.obj",
-          "material" : "matteWhite"
+          "material" : "chromeMirror"
         },
         {
           "shape" : "SquarePlane",
           "name" : "Floor",
-          "material" : "matteWhite",
+          "material" : "chromeMirror",
           "transform" : {
             "translate" : [0, -2.5, -5.5],
             "rotate" : [90, 0, 45],
@@ -31,7 +31,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "Left Wall",
-          "material" : "matteRed",
+          "material" : "chromeMirror1",
           "transform" : {
             "translate" : [5.3, 5, -0.25],
             "rotate" : [0, 45, 0],
@@ -41,7 +41,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "Right Wall",
-          "material" : "matteGreen",
+          "material" : "chromeMirror2",
           "transform" : {
             "translate" : [-5.3, 5, -0.25],
             "rotate" : [0, -45, 0],
@@ -51,7 +51,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere1",
-          "material" : "matteRed",
+          "material" : "glass",
           "transform" : {
             "translate" : [0.7, 7, 3.6],
             "rotate" : [0, 0, 0],
@@ -61,7 +61,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere2",
-          "material" : "matteRed",
+          "material" : "matteGreen",
           "transform" : {
             "translate" : [-0.7, 5, 2.25],
             "rotate" : [0, 0, 0],
@@ -71,7 +71,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere3",
-          "material" : "matteRed",
+          "material" : "plasticPurple",
           "transform" : {
             "translate" : [-3.5, 3, 0.8],
             "rotate" : [0, 0, 0],
@@ -81,7 +81,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere4",
-          "material" : "matteRed",
+          "material" : "glass",
           "transform" : {
             "translate" : [2.8, 2, 0.1],
             "rotate" : [0, 0, 0],
@@ -91,7 +91,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere5",
-          "material" : "matteRed",
+          "material" : "plasticSalmon",
           "transform" : {
             "translate" : [0.7, 1, -0.7],
             "rotate" : [0, 0, 0],
@@ -101,7 +101,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere6",
-          "material" : "matteRed",
+          "material" : "plasticGreen",
           "transform" : {
             "translate" : [-3.5, -1, -2],
             "rotate" : [0, 0, 0],
@@ -111,7 +111,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere7",
-          "material" : "matteRed",
+          "material" : "glass",
           "transform" : {
             "translate" : [5.7, -2, -2.7],
             "rotate" : [0, 0, 0],
@@ -121,7 +121,7 @@
         {
           "shape" : "Sphere",
           "name" : "sphere8",
-          "material" : "matteRed",
+          "material" : "matteSalmon",
           "transform" : {
             "translate" : [1.4, -2, -2.7],
             "rotate" : [0, 0, 0],
@@ -132,26 +132,12 @@
       "lights" : [
         {
           "shape" : "SquarePlane",
-          "name" : "Light Source Yellow",
+          "name" : "Light Source",
           "type" : "DiffuseAreaLight",
           "lightColor" : [17,12,4],
-          "intensity" : 1,
+          "intensity" : 2,
           "transform" : {
-            "translate" : [2,11,0],
-            "rotate" : [90,0,0],
-            "scale" : [3, 3, 1]
-          },
-          "isDelta" : false,
-          "twoSided" : true
-        },
-        {
-          "shape" : "SquarePlane",
-          "name" : "Light Source Blue",
-          "type" : "DiffuseAreaLight",
-          "lightColor" : [4,12,17],
-          "intensity" : 1,
-          "transform" : {
-            "translate" : [-2, 11,0],
+            "translate" : [0,11,0],
             "rotate" : [90,0,0],
             "scale" : [3, 3, 1]
           },
@@ -162,21 +148,67 @@
       "materials" : [
         {
           "type" : "MatteMaterial",
-          "name" : "matteWhite",
-            "Kd" : [0.85, 0.81, 0.78],
-          "sigma": 0
+          "name" : "matteSalmon",
+            "Kd" : [0.96, 0.26, 0.26],
+          "sigma": 20
+        },
+        {
+          "type": "GlassMaterial",
+          "name": "glass",
+          "Kt": [0.9, 0.9, 1],
+          "Kr": [1, 1, 0.2],
+          "eta": 1.55
+        },
+        {
+          "type" : "PlasticMaterial",
+          "name" : "plasticSalmon",
+            "Kd" : [0.96, 0.26, 0.26],
+            "Ks" : [1, 1, 1],
+          "roughness": 0.1
         },
         {
           "type" : "MatteMaterial",
-          "name" : "matteRed",
-          "Kd" : [0.63, 0.065, 0.05],
-          "sigma": 0
+          "name" : "mattePurple",
+          "Kd" : [0.6, 0.26, 0.96],
+          "sigma": 10
+        },
+        {
+          "type" : "PlasticMaterial",
+          "name" : "plasticPurple",
+            "Kd" : [0.6, 0.26, 0.96],
+            "Ks" : [1, 1, 1],
+          "roughness": 0.1
         },
         {
           "type" : "MatteMaterial",
           "name" : "matteGreen",
-          "Kd" : [0.14, 0.45, 0.091],
-          "sigma": 0
+          "Kd" : [0.85, 0.96, 0.26],
+          "sigma": 30
+        },
+        {
+          "type" : "PlasticMaterial",
+          "name" : "plasticGreen",
+            "Kd" : [0.85, 0.96, 0.26],
+            "Ks" : [1, 1, 1],
+          "roughness": 0.1
+        },
+        {
+          "type": "MirrorMaterial",
+          "name": "chromeMirror",
+          "Kr": [1, 1, 1],
+          "roughness": 0.05
+        },
+        {
+          "type": "MirrorMaterial",
+          "name": "chromeMirror1",
+          "Kr": [0.25, 0.96, 0.69],
+          "roughness": 0.1
+        },
+        {
+          "type": "MirrorMaterial",
+          "name": "chromeMirror2",
+          "Kr": [0.3, 0.26, 0.96],
+          "roughness": 0.2
         }
       ]
     }
