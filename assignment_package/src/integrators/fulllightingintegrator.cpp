@@ -6,7 +6,8 @@ Color3f FullLightingIntegrator::Li(Ray &ray, const Scene &scene, std::shared_ptr
     Color3f energy = Color3f(1.f);
     Color3f color = Color3f(0.f);
     // declarations
-    Color3f gColor, fColor; float pdf; Vector3f wiW; Intersection isect_Test;
+    float pdf; Vector3f wiW;
+    bool specular = false;
 
     // number of lights
     int num= scene.lights.length();
@@ -14,49 +15,58 @@ Color3f FullLightingIntegrator::Li(Ray &ray, const Scene &scene, std::shared_ptr
 
     while (depth > 0) {
         Intersection isect;
-        if (!scene.Intersect(ray, &isect)) return Color3f(0.f);
+        if (!scene.Intersect(ray, &isect)) break;
         Vector3f woW = - ray.direction;
-        if (!isect.objectHit->GetMaterial()) return isect.Le(woW);
+        if (!isect.objectHit->GetMaterial()) {
+            if (specular || depth == 5) color += energy * isect.Le(woW);
+            break;
+        }
 
         isect.ProduceBSDF();
 
-        // direct
+        // light
         int index = std::min((int)(sampler->Get1D() * num), num - 1);
         const std::shared_ptr<Light> &light = scene.lights[index];
         Color3f li2 = light->Sample_Li(isect, sampler->Get2D(), &wiW, &pdf);
         Color3f f2 = isect.bsdf->f(woW, wiW);
         float wg = PowerHeuristic(1, pdf, 1, isect.bsdf->Pdf(woW, wiW));
-        if (scene.Intersect(isect.SpawnRay(wiW), &isect_Test)) {
-            if (isect_Test.objectHit->areaLight == scene.lights[index] && pdf > 0.f)
+        Color3f gColor(0.f);
+        Intersection shad_Feel;
+        if (scene.Intersect(isect.SpawnRay(wiW), &shad_Feel)) {
+            if (pdf > 0.f && shad_Feel.objectHit->areaLight == scene.lights[index])
                 gColor = f2 * li2 * AbsDot(wiW, isect.normalGeometric)/pdf;
         }
         // bsdf
-        Point2f xi = sampler->Get2D();
-        Color3f f1 = isect.bsdf->Sample_f(woW, &wiW, xi, &pdf);
-        if (pdf > 0.f && scene.Intersect(isect.SpawnRay(wiW), &isect_Test)) {
+        Color3f f1 = isect.bsdf->Sample_f(woW, &wiW, sampler->Get2D(), &pdf);
+        Color3f fColor(0.f);
+        Intersection isect_Test;
+        if (pdf > 0.f && scene.Intersect(isect.SpawnRay(glm::normalize(wiW)), &isect_Test)) {
             if (isect_Test.objectHit->areaLight == scene.lights[index])
                 fColor = light->L(isect_Test, -wiW) * f1 * AbsDot(wiW, isect.normalGeometric)/pdf;
         }
         float wf = PowerHeuristic(1, pdf, 1, light->Pdf_Li(isect, wiW));
         Color3f d_color = float(num) * (wf * fColor + wg * gColor);
 
+        color += energy * d_color;
+
         // global illumination
-        xi = sampler->Get2D();
-        Color3f f0 = isect.bsdf->Sample_f(woW, &wiW, xi, &pdf);
+        Color3f f0 = isect.bsdf->Sample_f(woW, &wiW, sampler->Get2D(), &pdf);
         if (pdf > 0.f) {
             Color3f f = f0 * AbsDot(wiW, isect.normalGeometric)/pdf;
             energy *= f;
-            color += energy * d_color;
         }
 
         // russian roulette termination check
         float q = sampler->Get1D();
         float E = glm::max(energy.x, glm::max(energy.y, energy.z));
-        if (depth < 3 && E < q) break;
+        if (depth < 3) {
+            if (E < q) break;
+            energy /= (1 - q);
+        }
 
         // loop updates
         depth--;
-        energy /= E;
+        //energy /= E;
         ray = isect.SpawnRay(wiW);
     }
     return color;
