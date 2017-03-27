@@ -14,10 +14,10 @@ Comparison
 ![](./full_old.png)
 
 # Direct Lighting
-![](./twolight_direct.png)
+![](./twolights_direct.png)
 
 # Naive
-![](./twolight_naive.png)
+![](./twolights_naive.png)
 
 
 Custom scenes
@@ -37,8 +37,15 @@ description
 Extra credit
 -----------
 #Oren Nayar (5)
-sigma = 0, 30, 50
-![](./oren0.png) ![](./oren30.png) ![](./oren50.png)
+all rendered with 100 samples, 5 recursion, full lighting
+Lambertian
+![](./oren0.png) 
+
+Sigma = 0.3
+![](./oren30.png) 
+
+Sigma = 0.5
+![](./oren50.png)
 
 #Lambertian Transmission (5)
 (left) Lambertian

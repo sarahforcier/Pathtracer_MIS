@@ -294,7 +294,6 @@ bool JSONReader::LoadMaterial(QJsonObject &material, const QStringRef &local_pat
         std::shared_ptr<QImage> textureMap;
         std::shared_ptr<QImage> normalMap;
         Color3f Kt = ToVec3(material["Kt"].toArray());
-        float eta = material["eta"].toDouble();
         if(material.contains(QString("textureMap"))) {
             QString img_filepath = local_path.toString().append(material["textureMap"].toString());
             textureMap = std::make_shared<QImage>(img_filepath);

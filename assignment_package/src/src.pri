@@ -52,7 +52,7 @@ SOURCES += \
     $$PWD/scene/materials/translucentmaterial.cpp \
     $$PWD/scene/materials/ubermaterial.cpp \
     $$PWD/scene/materials/lambertbtdf.cpp \
-    $$PWD/scene/materials/trasmissivelmaterial.cpp
+    $$PWD/scene/materials/transmissivelmaterial.cpp
 
 HEADERS += \
     $$PWD/mainwindow.h \
