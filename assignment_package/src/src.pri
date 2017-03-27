@@ -47,12 +47,12 @@ SOURCES += \
     $$PWD/scene/materials/microfacet.cpp \
     $$PWD/scene/materials/microfacetbrdf.cpp \
     $$PWD/scene/materials/microfacetbtdf.cpp \
-    $$PWD/scene/materials/frostedmaterial.cpp \
     $$PWD/scene/materials/orennayar.cpp \
     $$PWD/scene/materials/metalmaterial.cpp \
     $$PWD/scene/materials/translucentmaterial.cpp \
     $$PWD/scene/materials/ubermaterial.cpp \
-    $$PWD/scene/materials/lambertbtdf.cpp
+    $$PWD/scene/materials/lambertbtdf.cpp \
+    $$PWD/scene/materials/trasmissivelmaterial.cpp
 
 HEADERS += \
     $$PWD/mainwindow.h \
@@ -101,9 +101,9 @@ HEADERS += \
     $$PWD/scene/materials/microfacet.h \
     $$PWD/scene/materials/microfacetbrdf.h \
     $$PWD/scene/materials/microfacetbtdf.h \
-    $$PWD/scene/materials/frostedmaterial.h \
     $$PWD/scene/materials/orennayar.h \
     $$PWD/scene/materials/ubermaterial.h \
     $$PWD/scene/materials/translucentmaterial.h \
     $$PWD/scene/materials/metalmaterial.h \
-    $$PWD/scene/materials/lambertbtdf.h
+    $$PWD/scene/materials/lambertbtdf.h \
+    $$PWD/scene/materials/transmissivelmaterial.h

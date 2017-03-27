@@ -9,6 +9,7 @@ Color3f FullLightingIntegrator::Li(Ray &ray, const Scene &scene, std::shared_ptr
     float pdf; Vector3f wiW;
     BxDFType type = BSDF_DIFFUSE;
     BxDFType all = BSDF_ALL;
+    int recursionLimit = depth;
 
     // number of lights
     int num= scene.lights.length();
@@ -19,7 +20,7 @@ Color3f FullLightingIntegrator::Li(Ray &ray, const Scene &scene, std::shared_ptr
         if (!scene.Intersect(ray, &isect)) break;
         Vector3f woW = - ray.direction;
         if (!isect.objectHit->GetMaterial()) {
-            if ((BSDF_SPECULAR & type) != 0 || depth == 5) color += energy * isect.Le(woW);
+            if ((BSDF_SPECULAR & type) != 0 || depth == recursionLimit) color += energy * isect.Le(woW);
             break;
         }
 
