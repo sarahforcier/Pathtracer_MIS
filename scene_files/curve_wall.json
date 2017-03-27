@@ -15,7 +15,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "wall0",
-          "material" : "matteWhite",
+          "material" : "plasticWhite",
           "transform" : {
             "translate" : [4.947, 2.5, -1.19],
             "rotate" : [0, 60, 0],
@@ -25,7 +25,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "wall1",
-          "material" : "matteWhite",
+          "material" : "plasticWhite",
           "transform" : {
             "translate" : [4.376, 2.5, -0.374],
             "rotate" : [0, 50, 0],
@@ -35,7 +35,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "wall2",
-          "material" : "matteWhite",
+          "material" : "plasticWhite",
           "transform" : {
             "translate" : [3.672, 2.5, 0.33],
             "rotate" : [0, 40, 0],
@@ -45,7 +45,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "wall3",
-          "material" : "matteWhite",
+          "material" : "plasticWhite",
           "transform" : {
             "translate" : [2.856, 2.5, 0.901],
             "rotate" : [0, 30, 0],
@@ -55,7 +55,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "wall4",
-          "material" : "matteWhite",
+          "material" : "plasticWhite",
           "transform" : {
             "translate" : [1.954, 2.5, 1.322],
             "rotate" : [0, 20, 0],
@@ -65,7 +65,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "wall5",
-          "material" : "matteWhite",
+          "material" : "plasticWhite",
           "transform" : {
             "translate" : [0.992, 2.5, 1.59],
             "rotate" : [0, 10, 0],
@@ -75,7 +75,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "wall6",
-          "material" : "matteWhite",
+          "material" : "plasticWhite",
           "transform" : {
             "translate" : [0, 2.5, 1.66],
             "rotate" : [0, 0, 0],
@@ -85,7 +85,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "wall7",
-          "material" : "matteWhite",
+          "material" : "plasticWhite",
           "transform" : {
             "translate" : [-0.992, 2.5, 1.753],
             "rotate" : [0, 10, 0],
@@ -95,7 +95,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "wall8",
-          "material" : "matteWhite",
+          "material" : "plasticWhite",
           "transform" : {
             "translate" : [-1.954, 2.5, 2.011],
             "rotate" : [0, 20, 0],
@@ -105,7 +105,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "wall9",
-          "material" : "matteWhite",
+          "material" : "plasticWhite",
           "transform" : {
             "translate" : [-2.856, 2.5, 2.432],
             "rotate" : [0, 30, 0],
@@ -115,7 +115,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "wall10",
-          "material" : "matteWhite",
+          "material" : "plasticWhite",
           "transform" : {
             "translate" : [-3.672, 2.5, 3.003],
             "rotate" : [0, 40, 0],
@@ -125,7 +125,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "wall11",
-          "material" : "matteWhite",
+          "material" : "plasticWhite",
           "transform" : {
             "translate" : [-4.376, 2.5, 3.707],
             "rotate" : [0, 50, 0],
@@ -134,8 +134,8 @@
         },
         {
           "shape" : "SquarePlane",
-          "name" : "wall9",
-          "material" : "matteWhite",
+          "name" : "wall12",
+          "material" : "plasticWhite",
           "transform" : {
             "translate" : [-4.947, 2.5, 4.523],
             "rotate" : [0, 60, 0],
@@ -175,7 +175,7 @@
         {
           "shape" : "SquarePlane",
           "name" : "Back Wall",
-          "material" : "chromeMirror",
+          "material" : "matteWhite",
           "transform" : {
             "translate" : [0,2.5,5],
             "rotate" : [0,180,0],
@@ -190,6 +190,36 @@
             "translate" : [0, 7.5, 0],
             "rotate" : [90,0,0],
             "scale" : [10, 10, 1]
+          }
+        },
+        {
+          "shape" : "Sphere",
+          "name" : "sphere1",
+          "material" : "glass",
+          "transform" : {
+            "translate" : [-1.5, 5, -5],
+            "rotate" : [0, 0, 0],
+            "scale" : [1,1,1]
+          }
+        },
+        {
+          "shape" : "Sphere",
+          "name" : "sphere2",
+          "material" : "glass",
+          "transform" : {
+            "translate" : [1.5, 1.5, -3],
+            "rotate" : [0, 0, 0],
+            "scale" : [2,2,2]
+          }
+        },
+        {
+          "shape" : "Sphere",
+          "name" : "sphere3",
+          "material" : "glass",
+          "transform" : {
+            "translate" : [-2, 2.5, -10],
+            "rotate" : [0, 0, 0],
+            "scale" : [0.5, 0.5, 0.5]
           }
         }
       ],
@@ -241,6 +271,20 @@
           "name" : "matteGreen",
           "Kd" : [0.14, 0.45, 0.091],
           "sigma": 0
+        },
+        {
+          "type" : "PlasticMaterial",
+          "name" : "plasticWhite",
+            "Kd" : [1,0,1],
+            "Ks" : [1, 1, 1],
+          "roughness": 0.1
+        },
+        {
+          "type": "GlassMaterial",
+          "name": "glass",
+          "Kt": [0.9, 0.9, 1],
+          "Kr": [1, 1, 0.2],
+          "eta": 1.55
         }
       ]
     }

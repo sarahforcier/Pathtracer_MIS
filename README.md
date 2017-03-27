@@ -7,50 +7,52 @@ Sarah Forcier
 
 Comparison
 ------------
-# New Full Lighting
+#### New Full Lighting
 ![](./full_new.png)
 
-# Old Full Lighting
+#### Old Full Lighting
 ![](./full_old.png)
 
-# Direct Lighting
+#### Direct Lighting
 ![](./twolights_direct.png)
 
-# Naive
+#### Naive
 ![](./twolights_naive.png)
 
 
 Custom scenes
 -----------
-#Bubbles
+####Bubbles
 Description
 ![](./bubbles.png)
 
-#Stairs
+####Stairs
 description
 ![](./stairs.png)
 
-#Curved Wall
+####Curved Wall
 ![](./curved.png)
 
 
 Extra credit
 -----------
-#Oren Nayar (5)
+####Oren Nayar (5)
 all rendered with 100 samples, 5 recursion, full lighting
+
 Lambertian
+
 ![](./oren0.png) 
 
 Sigma = 0.3
+
 ![](./oren30.png) 
 
 Sigma = 0.5
+
 ![](./oren50.png)
 
-#Lambertian Transmission (5)
-(left) Lambertian
-(right) Specular
-![](./lamberttrans.png)
+####Lambertian Transmission (5)
+![](./LamTrans.png)
 
-#Fresnel Conductor (8)
+####Fresnel Conductor (8)
 ![](./conductor.png)
