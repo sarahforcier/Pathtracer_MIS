@@ -1,12 +1,13 @@
 Path Tracer Episode V: Global Illumination Strikes Back
 ======================
-All images are rendered with 900 samples per pixel and a recursion depth of 8
+
 
 Sarah Forcier
 58131867
 
 Comparison
 ------------
+Images rendered with 900 samples per pixel and a recursion depth of 8
 #### New Full Lighting
 ![](./full_new.png)
 
@@ -22,21 +23,22 @@ Comparison
 
 Custom scenes
 -----------
-####Bubbles
+Images rendered with 1600 samples per pixel and a recursion depth of 8
+#### Bubbles
 Description
 ![](./bubbles.png)
 
-####Stairs
+#### Stairs
 description
 ![](./stairs.png)
 
-####Curved Wall
+#### Curved Wall
 ![](./curved.png)
 
 
 Extra credit
 -----------
-####Oren Nayar (5)
+#### Oren Nayar (5)
 all rendered with 100 samples, 5 recursion, full lighting
 
 Lambertian
@@ -51,8 +53,8 @@ Sigma = 0.5
 
 ![](./oren50.png)
 
-####Lambertian Transmission (5)
-![](./LamTrans.png)
+#### Lambertian Transmission (5)
+![](./lamTrans.png)
 
-####Fresnel Conductor (8)
-see Curved Wall image above with glass and metal materials, where the metal is gold using a Fresnel Conductor. 
+#### Fresnel Conductor (8)
+see Curved Wall image above with glass and metal materials, where the metal is gold using a Fresnel Conductor and k and eta constants given in PBRT. 
