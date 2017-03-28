@@ -55,4 +55,4 @@ Sigma = 0.5
 ![](./LamTrans.png)
 
 ####Fresnel Conductor (8)
-![](./conductor.png)
+see Curved Wall image above with glass and metal materials, where the metal is gold using a Fresnel Conductor. 
