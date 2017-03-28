@@ -273,11 +273,10 @@
           "sigma": 0
         },
         {
-          "type" : "PlasticMaterial",
+          "type" : "MatteMaterial",
           "name" : "plasticWhite",
-            "Kd" : [1,0,1],
-            "Ks" : [1, 1, 1],
-          "roughness": 0.1
+            "Kd" : [0.85, 0.81, 0.78],
+          "sigma": 0
         },
         {
           "type": "GlassMaterial",

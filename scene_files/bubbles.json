@@ -8,10 +8,20 @@
         "eye" : [0, 20, -35],
         "worldUp" : [0, 1, 0],
         "fov" : 20,
-        "width" : 600,
-        "height": 400
+        "width" : 750,
+        "height": 500
       },
       "primitives" : [
+      	{
+          "shape" : "SquarePlane",
+          "name" : "Back Wall",
+          "material" : "matteWhite",
+          "transform" : {
+            "translate" : [0,2.5,-40],
+            "rotate" : [0,-180,0],
+            "scale" : [50,50, 1]
+          }
+        },
         {
           "shape" : "SquarePlane",
           "name" : "Back Wall",
