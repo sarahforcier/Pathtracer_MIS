@@ -1,7 +1,6 @@
 Path Tracer Episode V: Global Illumination Strikes Back
 ======================
 
-
 Sarah Forcier
 58131867
 
@@ -25,21 +24,24 @@ Custom scenes
 -----------
 Images rendered with 1600 samples per pixel and a recursion depth of 8
 #### Bubbles
-Description
+Scene Description: plastic bubble material, three multi colored lights
+
 ![](./bubbles.png)
 
-#### Stairs
-description
+#### Spheres on Stairs
+Scene Description: mirrored microfaceted spheres, staircase is a mesh modeled in maya with a matte material, two lights
+
 ![](./stairs.png)
 
-#### Curved Wall
+#### Spheres in the Sky
+Scene Description: gold metal and glass spheres in a environment cube, three lights
+
 ![](./curved.png)
 
 
 Extra credit
 -----------
-#### Oren Nayar (5)
-all rendered with 100 samples, 5 recursion, full lighting
+#### Oren Nayar (5): rendered with 100 samples, 5 recursion, full lighting
 
 Lambertian
 
@@ -57,4 +59,4 @@ Sigma = 0.5
 ![](./lamTrans.png)
 
 #### Fresnel Conductor (8)
-see Curved Wall image above with glass and metal materials, where the metal is gold using a Fresnel Conductor and k and eta constants given in PBRT. 
+The gold metal in an above image uses a Fresnel Conductor where k and eta are constants given in PBRT. 
